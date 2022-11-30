@@ -1,0 +1,27 @@
+@color-primary: #006eff;
+@color-danger: #e54545;
+.text-danger {
+  color: @color-danger;
+}
+.single-line {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.multi-line(@rows) {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: @rows;
+  overflow: hidden;
+}
+.animated {
+  -webkit-animation-duration: 1s;
+  animation-duration: 1s;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+}
+
+// 没有菜单的页面的内容宽度
+@singleContentWidth: 1200px;
+// 有菜单的页面的内容宽度
+@rightContentMinWidth: 1200px;

@@ -1,0 +1,7 @@
+src/app.ts
+.eslintrc.js
+/webpack-configs/*.js
+# /webpack.config.js
+# /postcss.config.js
+/public/*.js
+/src/types/*.ts
