@@ -1,4 +1,4 @@
-const px2rem = require("postcss-plugin-px2rem");
+const px2rem = require('postcss-plugin-px2rem');
 
 const px2remOpts = {
   remUnit: 41.4, // 注意：这里如果要改的话，全局搜一下41.4，还有其他地方需要改（凡是涉及到动态设置css样式，单位为px的，都需要/41.4）
@@ -7,21 +7,21 @@ const px2remOpts = {
   // ignoreIdentifier: false,  // boolean/string 忽略单个属性的方法，启用ignoreidentifier后，replace将自动设置为true。
   // replace: true, // 布尔值 替换包含REM的规则，而不是添加回退。
   mediaQuery: false, // 布尔值 允许在媒体查询中转换px。
-  minPixelValue: 3, // 设置要替换的最小像素值(3px会被转rem)。 默认 0
+  minPixelValue: 3 // 设置要替换的最小像素值(3px会被转rem)。 默认 0
 };
 module.exports = (api) => ({
-  ident: "postcss",
+  ident: 'postcss',
   // stringifier: 'ecs',
   plugins: [
     [
-      "postcss-preset-env",
+      'postcss-preset-env',
       {
         autoprefixer: {
-          flexbox: "no-2009",
+          flexbox: 'no-2009'
         },
-        stage: 3,
-      },
+        stage: 3
+      }
     ],
-    px2rem(px2remOpts),
-  ],
+    px2rem(px2remOpts)
+  ]
 });
