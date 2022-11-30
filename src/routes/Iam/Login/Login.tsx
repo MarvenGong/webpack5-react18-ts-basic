@@ -1,5 +1,5 @@
-import AuthManager from '@src/libs/AuthManager';
 import React, { useState, useEffect, FC } from 'react';
+import AuthManager from '@src/libs/AuthManager';
 import { useNavigate } from 'react-router';
 import './style.less';
 interface ILoginProps {
@@ -20,7 +20,9 @@ const Login: FC<ILoginProps> = (props: ILoginProps) => {
     navigate('/');
   }
   return (
-    <div className="login-wraper" data-v-wp34h0lb>
+    <div className="login-wraper"
+      data-v-wp34h0lb
+    >
       <h2>登录</h2>
       <button onClick={() => handleLogin()}>登录</button>
     </div>

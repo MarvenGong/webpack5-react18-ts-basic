@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/naming-convention */
 class CookieManager {
   /**
    * @description 读取cookie

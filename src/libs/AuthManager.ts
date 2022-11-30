@@ -17,8 +17,8 @@ class AuthManager {
           firm_id: user?.firm_id || '',
           phone: user?.phone || '',
           is_tutor: user?.is_tutor || '',
-          firm_admin: user?.firm_admin || '',
-        }),
+          firm_admin: user?.firm_admin || ''
+        })
       );
     }
   }
