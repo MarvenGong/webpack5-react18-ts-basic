@@ -1,4 +1,4 @@
-# ECS-MOBILE-H5
+# webpack5-react18-ts-basic
 
 ## 开发工具
 
@@ -15,10 +15,6 @@ npm run dev
 ```
 npm run serve
 ```
-
-## 组件
-
-使用 Tea 移动端组件进行开发，文档地址：http://tea.tencent.com/mobile
 
 ## 构建
 
@@ -44,7 +40,7 @@ npm run build
 
 ```ts
 const navigate = useNavigate();
-navigate("/login"); // 跳转到登录
+navigate('/login'); // 跳转到登录
 navigate(-1); // 返回上一个页面
 ```
 
@@ -52,7 +48,7 @@ navigate(-1); // 返回上一个页面
 
 ```ts
 const navigation = useNavigation();
-new URLSearchParams(navigation.location.search).has("q");
+new URLSearchParams(navigation.location.search).has('q');
 ```
 
 或
@@ -64,21 +60,4 @@ let [searchParams, setSearchParams] = useSearchParams();
 console.log(searchParams?.id);
 // 更新参数
 setSearchParams({...searchParams, { pageNo: 10 }})
-```
-
-### 组件
-
-- swiper
-  https://swiperjs.com/demos?from_wecom=1
-
-- 图片预览
-
-```
-<ImagePreview src={CDN_URL + url} style={{width: '100%'}}>
-```
-
-- 视频预览
-
-```
-
 ```
