@@ -8,7 +8,6 @@ module.exports = {
     commonjs: true
   },
   plugins: [
-    // '@typescript-eslint/eslint-plugin',
     'react'
   ],
   parser: '@typescript-eslint/parser',
@@ -19,7 +18,7 @@ module.exports = {
       'experimentalObjectRestSpread': true,
       'jsx': true
     },
-    ecmaVersion: 2015
+    ecmaVersion: 2022
   },
   extends: [
     'eslint:recommended'
