@@ -2,7 +2,7 @@
 const path = require('path');
 const tsImportPluginFactory = require('ts-import-plugin');
 const SpeedMeasurePlugin = require('speed-measure-webpack-plugin');
-const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const smp = new SpeedMeasurePlugin();
 const fs = require('fs');
 const packageJson = require('./package.json');
@@ -17,13 +17,13 @@ module.exports = wrapConfig({
   target: 'web',
   mode: isDev ? 'development' : 'production',
   entry: {
-    [packageJson?.name]: path.resolve(__dirname, './src/app.tsx'),
+    [packageJson?.name]: path.resolve(__dirname, './src/app.tsx')
   },
   output: {
     filename: isDev ? '[name].js' : '[name].[hash].js',
     path: path.resolve(__dirname, './dist'),
     publicPath: '/',
-    clean: true,
+    clean: true
   },
   // infrastructureLogging: {
   //   level: 'error'
@@ -36,7 +36,7 @@ module.exports = wrapConfig({
     entrypoints: true,
     modules: false,
     assetsSpace: 1000,
-    preset: 'minimal',
+    preset: 'minimal'
   },
   devServer: {
     ...config.dev,
@@ -44,15 +44,15 @@ module.exports = wrapConfig({
     // static: {
     //   directory: path.join(__dirname, './public'),
     // },
-    watchFiles: './src/**/*',
+    watchFiles: './src/**/*'
   },
   devtool: isDev ? 'inline-source-map' : 'source-map',
   resolve: {
     alias: {
       '@src': path.resolve(__dirname, './src'),
-      '@tea/app': path.resolve(__dirname, './app'),
+      '@tea/app': path.resolve(__dirname, './app')
     },
-    extensions: ['.ts', '.tsx', '.js', 'less'],
+    extensions: ['.ts', '.tsx', '.js', 'less']
   },
   module: {
     rules: [
@@ -68,77 +68,65 @@ module.exports = wrapConfig({
                   style: false,
                   libraryName: 'lodash',
                   libraryDirectory: null,
-                  camel2DashComponentName: false,
+                  camel2DashComponentName: false
                 },
-                { style: true },
-              ]),
-            ],
+                { style: true }
+              ])
+            ]
           }),
           compilerOptions: {
-            module: 'esnext',
-          },
+            module: 'esnext'
+          }
         },
-        exclude: /node_modules/,
+        exclude: /node_modules/
       },
       {
         test: /\.(le|c)ss$/,
         use: [
           isDev ? 'style-loader' : MiniCssExtractPlugin.loader, // 现网环境才提取css到一个文件中
           {
-            loader: 'css-loader', // translates CSS into CommonJS
+            loader: 'css-loader' // 使用import语句导入样式
           },
           {
-            loader: "postcss-loader",
+            loader: 'postcss-loader',
             options: {
               postcssOptions: {
-                config: './postcss.config.js',
+                config: './postcss.config.js'
               },
-              sourceMap: true,
+              sourceMap: true
             }
           },
           {
-            loader: 'less-loader', // compiles Less to CSS
+            loader: 'less-loader', // 转less为css
             options: {
               lessOptions: {
                 modifyVars: {
-                  '@body-background': '#f5f5f5',
+                  '@body-background': '#f5f5f5'
                 },
-                javascriptEnabled: true,
-              },
-            },
-          },
+                javascriptEnabled: true
+              }
+            }
+          }
           // {
           //   loader: 'style-resources-loader',
           //   options: {
           //     patterns: path.resolve(__dirname, './src/styles/common.less'), // 全局引入公共的scss 文件
           //   },
           // },
-        ],
+        ]
       },
       {
-        test: /\.(png|jpg|gif)$/,
+        test: /\.(png|jp(e)?g|gif|woff(2)?|ttf|eot|svg)(\?v=\d+\.\d+\.\d+)?$/,
         use: [
           {
-            loader: 'url-loader',
+            loader: 'url-loader', // 处理图片和字体等资源，小于limit则编码，大于则处理路径，包含了 file-loader
             options: {
-              limit: 8192,
-            },
-          },
-        ],
-      },
-      {
-        test: /\.(woff(2)?|ttf|eot|svg)(\?v=\d+\.\d+\.\d+)?$/,
-        use: [
-          {
-            loader: 'file-loader',
-            options: {
-              name: '[name].[ext]',
-              outputPath: 'fonts/'
+              limit: 8192
             }
           }
         ]
       }
-    ],
+    ]
   },
   watchOptions: {
     // 设置不监听的⽂件或⽂件夹，默认为空
@@ -146,8 +134,8 @@ module.exports = wrapConfig({
     // ⽂件改变不会⽴即执⾏，⽽是会等待300ms之后再去执⾏
     aggregateTimeout: 300,
     // 原理是轮询系统⽂件有⽆变化再去更新的，默认1秒钟轮询1000次
-    poll: 1000,
+    poll: 1000
   },
   plugins,
-  optimization: !isDev ? optimization : {},
+  optimization: !isDev ? optimization : {}
 });
