@@ -5,14 +5,15 @@ import RootError from './components/Root/RootError';
 import Iam from './routes/Iam';
 import AppUtils from './utils/AppUtils';
 const { lazyComp } = AppUtils;
-const Home = lazyComp(() => import('./routes/home'));
-const Login = lazyComp(() => import('./routes/Iam/Login'));
+const Home = lazyComp(() => import('./routes/Home'));
+// const Login = lazyComp(() => import('./routes/Iam/Login'));
+import Login from './routes/Iam/Login';
 
 export default createBrowserRouter([
   {
     path: '/',
     element: <Root />,
-    errorElement: <RootError />, 
+    errorElement: <RootError />,
     children: [
       {
         index: true, // 首页作为跟路由默认页面时开启

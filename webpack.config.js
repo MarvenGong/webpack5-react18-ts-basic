@@ -17,10 +17,10 @@ module.exports = wrapConfig({
   target: 'web',
   mode: isDev ? 'development' : 'production',
   entry: {
-    [packageJson?.name]: path.resolve(__dirname, './src/app.tsx')
+    [packageJson?.name + '.main']: path.resolve(__dirname, './src/app.tsx')
   },
   output: {
-    filename: isDev ? '[name].js' : '[name].[hash].js',
+    filename: isDev ? '[name].js' : '[name].chunk.[hash].js',
     path: path.resolve(__dirname, './dist'),
     publicPath: '/',
     clean: true
